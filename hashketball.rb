@@ -179,13 +179,11 @@ def player_numbers(team_name)
 end
 
 def player_stats(player_name)
-  jerseys = []
   game_hash.each do |field_type, general_info|
     general_info[:players].each do |player|
-      if general_info[:team_name] == team_name
-        jerseys << player[:number]
+       if player[:player_name] == player_name
+         return player
       end
     end 
   end
-  jerseys
 end
