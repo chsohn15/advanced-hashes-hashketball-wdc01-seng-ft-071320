@@ -1,3 +1,4 @@
+require 'pry'
 # Write your code below game_hash
 def game_hash
   {
@@ -127,3 +128,64 @@ def game_hash
 end
 
 # Write code here
+
+def num_points_scored(player_name)
+  game_hash.each do |field_type, general_info|
+    general_info[:players].each do |player|
+       if player[:player_name] == player_name
+          return player[:points]
+        end
+    end
+  end  
+end
+
+def shoe_size(player_name)
+  game_hash.each do |field_type, general_info|
+    general_info[:players].each do |player|
+       if player[:player_name] == player_name
+          return player[:shoe]
+        end
+    end
+  end  
+end
+
+def team_colors(team_name)
+  game_hash.each do |field_type, general_info|
+    if general_info[:team_name] == team_name
+      return general_info[:colors]
+      binding.pry
+    end
+  end  
+end
+
+def team_names
+  teams = []
+  game_hash.each do |field_type, general_info|
+    teams << general_info[:team_name]
+  end  
+  return teams
+end
+
+def player_numbers(team_name)
+  jerseys = []
+  game_hash.each do |field_type, general_info|
+    general_info[:players].each do |player|
+      if general_info[:team_name] == team_name
+        jerseys << player[:number]
+      end
+    end 
+  end
+  jerseys
+end
+
+def player_stats(player_name)
+  jerseys = []
+  game_hash.each do |field_type, general_info|
+    general_info[:players].each do |player|
+      if general_info[:team_name] == team_name
+        jerseys << player[:number]
+      end
+    end 
+  end
+  jerseys
+end
