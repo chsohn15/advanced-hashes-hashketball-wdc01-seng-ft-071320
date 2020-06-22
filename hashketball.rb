@@ -188,11 +188,13 @@ def player_stats(player_name)
   end
 end
 
-def player_stats(player_name)
+def big_shoe_rebounds
+  max_shoe = 0 
   game_hash.each do |field_type, general_info|
     general_info[:players].each do |player|
-       if player[:player_name] == player_name
-         return player
+       if player[:shoe] > max_shoe
+         max_shoe = player[:shoe]
+         max_player = player[:]
       end
     end 
   end
