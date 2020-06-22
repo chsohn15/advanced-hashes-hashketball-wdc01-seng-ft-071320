@@ -193,7 +193,7 @@ def big_shoe_rebounds
   com_rebounds
   game_hash.each do |field_type, general_info|
     general_info[:players].each do |player|
-       if player[:shoe] > max_shoe
+       if player[:shoe] >= max_shoe
          max_shoe = player[:shoe]
          com_rebounds = player[:rebounds]
       end
